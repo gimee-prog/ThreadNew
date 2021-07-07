@@ -1,0 +1,31 @@
+package com.company;
+
+public class Request {
+    private int id;
+    private String name;
+    private  int amount;
+    private int requestType;
+
+    public  Request(int id, String name, int amount, int requestType) {
+        this.id = id;
+        this.name = name;
+        this.amount = amount;
+        this.requestType = requestType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public int getRequestType() {
+        return requestType;
+    }
+}
