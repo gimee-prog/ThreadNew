@@ -7,21 +7,19 @@ public class BackSystem extends Thread {
 
     public void treatmentRequest(Request request) {
 
-        if (request.getRequestType() == 0){
+        if (request.getRequestType() == "CREDIT"){
             if (balance < request.getAmount()){
-                System.out.println( "Заявка №"+request.getId()+" не выполнена. " +
+                System.out.println( "Заявка №"+request.getId()+": не выполнена. " +
                         "На счету банка недостаточно средств. Баланс банка= " + balance);
                 return;
             } else {
                 balance -= request.getAmount();
-                System.out.println(" Заявка №"+request.getId()+" выполнена. Баланс банка= "+balance);
+                System.out.println(" Заявка №"+request.getId()+": выполнена. Баланс банка= "+balance);
             }
         }
-        if (request.getRequestType() == 1){
+        if (request.getRequestType() == "PAYMENT"){
             balance += request.getAmount();
-            System.out.println("Заявка №"+request.getId()+" выполнена. Баланс банка= "+balance);
-
-
+            System.out.println("Заявка №"+request.getId()+": выполнена. Баланс банка= "+balance);
         }
 
     }

@@ -12,13 +12,13 @@ public class Treatment extends Thread{
     }
     @Override
     public void run() {
-        while (true) {
+        while (!FrontSystem.requestQueue.isEmpty()) {
             try {
                 request = fs.getRequest();
-                System.out.println("Обработчик №" + id + ": Заявка получена на обработку по клиенту №" + request.getId());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println("Обработчик №" + id + ": Заявка получена на обработку по клиенту №" + request.getId());
             assert request != null;
            bs.treatmentRequest(request);
         }

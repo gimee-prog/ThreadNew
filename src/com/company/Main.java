@@ -1,18 +1,14 @@
 package com.company;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Random;
-
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         FrontSystem fs = new FrontSystem();
         BackSystem bs = new BackSystem();
-
-
-        for (int i = 0; i < 5; i++) {
-            new Client(i, fs).start();
-        }
+        new Client(1, fs, 5000, "CREDIT").start();
+        new Client(2, fs, 6000, "PAYMENT").start();
+        new Client(3, fs, 7000, "CREDIT").start();
+        new Client(4, fs, 500, "PAYMENT").start();
+        new Client(5, fs, 9000, "CREDIT").start();
 
         new Treatment(1, fs, bs).start();
         new Treatment(2, fs, bs).start();

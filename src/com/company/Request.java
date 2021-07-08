@@ -4,9 +4,9 @@ public class Request {
     private int id;
     private String name;
     private  int amount;
-    private int requestType;
+    private String requestType;
 
-    public  Request(int id, String name, int amount, int requestType) {
+    public  Request(int id, String name, int amount, String requestType) {
         this.id = id;
         this.name = name;
         this.amount = amount;
@@ -25,7 +25,7 @@ public class Request {
         return amount;
     }
 
-    public int getRequestType() {
+    public String getRequestType() {
         return requestType;
     }
 }
